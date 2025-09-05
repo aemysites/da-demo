@@ -194,12 +194,10 @@
   }
 }
 
-/* Headline (left column) */
 .columns.columns14 > div > div:first-child h2 {
     font-size: 2.2rem;
   }
 
-/* Right column: tightly group paragraph and button at the top, no flex-grow */
 .columns.columns14 > div > div:last-child {
   display: flex;
   flex-direction: column;
@@ -210,17 +208,15 @@
   min-width: 0;
 }
 
-/* Prevent children from stretching vertically, keep them packed at the top */
 .columns.columns14 > div > div:last-child > * {
   flex: 0 0 auto;
 }
 
-/* Supporting text in right column */
 .columns.columns14 > div > div:last-child p:not(.button-container) {
   font-size: 0.93rem;
   color: #000;
   line-height: 1.38;
-  margin: 0 0 4px; /* very tight gap below paragraph */
+  margin: 0 0 4px;
   max-width: 100%;
 }
 
@@ -233,7 +229,6 @@
   width: auto;
 }
 
-/* Make sure button doesn't stretch or misalign */
 .columns.columns14 .button {
   background: #fff;
   color: #000;
@@ -257,7 +252,6 @@
   border-color: #000;
 }
 
-/* Responsive heading font for small screens */
 @media (width <= 899px) {
   .columns.columns14 > div > div:first-child h2 {
     font-size: 2.2rem;
@@ -265,5 +259,118 @@
 
   .columns.columns14 > div > div:last-child {
     max-width: 100%;
+  }
+}
+
+
+.columns.columns31 {
+  background: #f6f7f4;
+  padding: 0;
+}
+
+.columns.columns31 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 28px;
+  width: 100%;
+}
+
+.columns.columns31 > div > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 0;
+}
+
+.columns.columns31 > div > div:nth-child(1),
+.columns.columns31 > div > div:nth-child(2) {
+  flex: 2 1 0%;
+  min-width: 0;
+}
+
+.columns.columns31 > div > div:nth-child(3) {
+  flex: 0 0 auto;
+  align-items: flex-end;
+  justify-content: flex-start;
+  min-width: 140px;
+}
+
+.columns.columns31 > div > div p {
+  font-size: 13px;
+  color: #222;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: unset;
+}
+
+.columns.columns31 .button-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns31 .button-container .button {
+  background: #fff;
+  color: #222;
+  border: 1px solid #222;
+  border-radius: 999px;
+  font-size: 13px;
+  line-height: 1.4;
+  padding: 4px 24px;
+  margin: 0;
+  min-width: 100px;
+  min-height: 32px;
+  box-shadow: none;
+  position: relative;
+  transition: border-color 0.2s, color 0.2s;
+  z-index: 1;
+}
+
+.columns.columns31 .button-container .button::after {
+  display: block;
+  height: 3px;
+  background: #ffffb2;
+  border-radius: 2px;
+  margin-top: 2px;
+  width: calc(100% - 20px);
+  margin-left: 10px;
+  margin-right: 10px;
+  content: "";
+  z-index: 0;
+}
+
+/* Responsive: stack vertically on small screens */
+@media (width <= 899px) {
+  .columns.columns31 > div {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .columns.columns31 > div > div,
+  .columns.columns31 > div > div:nth-child(3) {
+    align-items: flex-start;
+    min-width: 0;
+  }
+
+  .columns.columns31 .button-container {
+    justify-content: flex-start;
+    width: auto;
+  }
+
+  .columns.columns31 .button-container .button {
+    min-width: 100px;
+  }
+
+  .columns.columns31 .button-container .button::after {
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }
