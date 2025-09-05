@@ -555,13 +555,11 @@
   box-sizing: border-box;
 }
 
-/* Left spacer column */
 .hero.hero35 > div:first-child {
   flex: 1 1 0;
   max-width: 60vw;
 }
 
-/* Main content column: force all content into a single flex row */
 .hero.hero35 > div:last-child {
   flex: 2 1 900px;
   display: flex;
@@ -573,8 +571,6 @@
   gap: 6vw;
 }
 
-/* Override: Stack the left text column 
-   Ensure heading+subheading are together, button is the only other column */
 .hero.hero35 > div:last-child > div {
   display: flex;
   flex-direction: row;
@@ -583,8 +579,6 @@
   gap: 3vw;
 }
 
-/* Group heading and subheading in a column.
-   Force .button-container out of the stack and into its own column */
 .hero.hero35 > div:last-child > div > div {
   display: flex;
   flex-direction: column;
@@ -607,7 +601,6 @@
   height: 100%;
 }
 
-/* Heading styling */
 .hero.hero35 h2 {
   font-size: 2.6rem;
   font-weight: 400;
@@ -619,7 +612,6 @@
   text-align: left;
 }
 
-/* Subheading styling */
 .hero.hero35 p:not(.button-container) {
   color: #888;
   font-size: 1rem;
@@ -630,7 +622,6 @@
   text-align: left;
 }
 
-/* Button style override */
 .hero-container > .hero-wrapper > .block.hero.hero35 .button,
 .hero.hero35 .button {
   width: 100%;
@@ -652,7 +643,6 @@
   outline: none;
 }
 
-/* Add a thin yellow underline effect only at the bottom of the button */
 .hero-container > .hero-wrapper > .block.hero.hero35 .button::after,
 .hero.hero35 .button::after {
   content: "";
@@ -710,5 +700,187 @@
     min-width: 180px;
     max-width: 100%;
     font-size: 1rem;
+  }
+}
+
+
+.hero.hero39 {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: none;
+}
+
+.hero.hero39 > div {
+  min-width: 0;
+  min-height: 0;
+  position: relative;
+}
+
+/* Full hero image background */
+.hero.hero39 > div:first-child {
+  order: 1;
+  flex: 1 1 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+}
+
+.hero.hero39 > div:first-child > div,
+.hero.hero39 picture,
+.hero.hero39 img {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  pointer-events: none;
+}
+
+/* Slightly darker overlay for enhanced text contrast */
+.hero.hero39 > div:first-child::after {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 38%);
+  pointer-events: none;
+  display: block;
+  z-index: 1;
+  content: "";
+}
+
+/* Text overlay: slightly less left inset, more compact width, higher vertical position, tighter grouping */
+.hero.hero39 > div:last-child {
+  order: 2;
+  position: relative;
+  z-index: 2;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 7vh 2vw 0 7vw;
+  max-width: 580px;
+  box-sizing: border-box;
+  background: none;
+  pointer-events: auto;
+}
+
+.hero.hero39 > div:last-child > div {
+  width: 100%;
+  max-width: 470px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* Headline styles: more compact, tighter vertical gap, strong shadow */
+.hero.hero39 h1 {
+  color: #fff;
+  font-size: clamp(2.8rem, 7vw, 4.8rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  margin: 0 0 14px;
+  text-align: left;
+  text-shadow: 0 2px 28px rgb(0 0 0 / 32%);
+}
+
+/* Paragraph styles: slightly tighter vertical gap, strong shadow */
+.hero.hero39 p {
+  color: #f5f5f5;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  margin: 0 0 10px;
+  font-weight: 300;
+  text-align: left;
+  text-shadow: 0 2px 20px rgb(0 0 0 / 18%);
+}
+
+/* Button styling: group tightly below paragraph */
+.hero.hero39 .button-container .button {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 2.4em;
+  padding: 0.54em 2.2em;
+  box-shadow: none;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+  transition: background 0.2s,color 0.2s;
+}
+
+.hero.hero39 .button-container {
+  margin-top: 0;
+}
+
+.hero.hero39 .button-container .button:hover,
+.hero.hero39 .button-container .button:focus {
+  background: #fff;
+  color: #191919;
+  border-color: #fff;
+  text-decoration: none;
+}
+
+/* Responsive stacking for smaller screens */
+@media (width <= 900px) {
+  .hero.hero39 {
+    flex-direction: column;
+    min-height: 70vh;
+    height: auto;
+  }
+
+  .hero.hero39 > div:first-child {
+    position: absolute;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .hero.hero39 > div:last-child {
+    min-height: unset;
+    max-width: 100vw;
+    padding: 32px 6vw 40px;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-top: 0;
+  }
+
+  .hero.hero39 h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+    margin-bottom: 10px;
+  }
+
+  .hero.hero39 p {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero39 > div:last-child {
+    padding: 20px 4vw 24px;
+  }
+
+  .hero.hero39 h1 {
+    font-size: clamp(1.3rem, 10vw, 2rem);
+    margin-bottom: 6px;
   }
 }
