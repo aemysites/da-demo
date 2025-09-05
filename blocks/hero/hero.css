@@ -481,7 +481,6 @@
   background: none;
 }
 
-/* Make the image layer fill the hero and stay in the back */
 .hero.hero28 > div:first-child {
   position: absolute;
   inset: 0;
@@ -493,7 +492,6 @@
   display: block;
 }
 
-/* Ensure picture and img fill the hero and are cropped correctly */
 .hero.hero28 picture,
 .hero.hero28 img {
   width: 100vw;
@@ -503,7 +501,6 @@
   display: block;
 }
 
-/* Overlay text container: center content with flexbox */
 .hero.hero28 > div:last-child {
   position: relative;
   width: 100vw;
@@ -516,7 +513,6 @@
   padding: 0;
 }
 
-/* Headline: very large, centered, responsive, optimal width for balance */
 .hero.hero28 h1 {
   color: #fff;
   text-align: center;
@@ -530,7 +526,6 @@
   background: none;
 }
 
-/* Make the hero extra spacious on large screens */
 @media (width >= 1200px) {
   .hero.hero28 {
     min-height: 850px;
@@ -543,5 +538,177 @@
   .hero.hero28 h1 {
     font-size: clamp(3.8rem, 7vw, 6.5rem);
     max-width: 44vw;
+  }
+}
+
+
+.hero.hero35 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 220px;
+  background: #fff;
+  border-bottom: 2px solid #000;
+  padding: 3vw 0;
+  box-sizing: border-box;
+}
+
+/* Left spacer column */
+.hero.hero35 > div:first-child {
+  flex: 1 1 0;
+  max-width: 60vw;
+}
+
+/* Main content column: force all content into a single flex row */
+.hero.hero35 > div:last-child {
+  flex: 2 1 900px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-width: 320px;
+  gap: 6vw;
+}
+
+/* Override: Stack the left text column 
+   Ensure heading+subheading are together, button is the only other column */
+.hero.hero35 > div:last-child > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  gap: 3vw;
+}
+
+/* Group heading and subheading in a column.
+   Force .button-container out of the stack and into its own column */
+.hero.hero35 > div:last-child > div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 0;
+  flex: 1 1 auto;
+  gap: 0.6rem;
+}
+
+.hero.hero35 > div:last-child > div > .button-container {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 370px;
+  min-width: 320px;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Heading styling */
+.hero.hero35 h2 {
+  font-size: 2.6rem;
+  font-weight: 400;
+  color: #131313;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* Subheading styling */
+.hero.hero35 p:not(.button-container) {
+  color: #888;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* Button style override */
+.hero-container > .hero-wrapper > .block.hero.hero35 .button,
+.hero.hero35 .button {
+  width: 100%;
+  min-width: 320px;
+  max-width: 440px;
+  padding: 0.6em 0;
+  margin: 0;
+  border: 1.5px solid #111;
+  border-radius: 999px;
+  background: #fff;
+  color: #131313;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2.1rem;
+  text-align: center;
+  box-shadow: none;
+  position: relative;
+  transition: box-shadow 0.2s, border-color 0.2s;
+  outline: none;
+}
+
+/* Add a thin yellow underline effect only at the bottom of the button */
+.hero-container > .hero-wrapper > .block.hero.hero35 .button::after,
+.hero.hero35 .button::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  bottom: 5px;
+  height: 2px;
+  border-radius: 1px;
+  background: #ecec00;
+  pointer-events: none;
+}
+
+@media (width <= 900px) {
+  .hero.hero35 {
+    flex-direction: column;
+    padding: 32px 0;
+    min-height: unset;
+  }
+
+  .hero.hero35 > div:first-child {
+    display: none;
+  }
+
+  .hero.hero35 > div:last-child {
+    flex: 1 1 100%;
+    width: 100%;
+    min-width: 0;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .hero.hero35 > div:last-child > div {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem 0;
+    width: 100%;
+  }
+
+  .hero.hero35 > div:last-child > div > div {
+    align-items: flex-start;
+  }
+
+  .hero.hero35 > div:last-child > div > .button-container {
+    min-width: 0;
+    width: 100%;
+    align-items: flex-start;
+    flex: none;
+    height: auto;
+  }
+
+  .hero-container > .hero-wrapper > .block.hero.hero35 .button,
+  .hero.hero35 .button {
+    min-width: 180px;
+    max-width: 100%;
+    font-size: 1rem;
   }
 }
