@@ -198,9 +198,6 @@
   background: none;
 }
 
-/* Make hero span full width */
-
-/* Make the main picture fill the hero as a background layer */
 .hero.hero12 > div > div > picture {
   position: static;
   inset: 0;
@@ -223,7 +220,6 @@
   box-shadow: 0 4px 18px rgb(0 0 0 / 10%);
 }
 
-/* Overlay effect to darken the background for image card contrast */
 .hero.hero12::after {
   content: "";
   position: absolute;
@@ -234,7 +230,6 @@
   pointer-events: none;
 }
 
-/* Foreground card (image overlay) - left alignment */
 .hero.hero12 > div {
   position: relative;
   z-index: 2;
@@ -250,7 +245,6 @@
   padding-bottom: 46px;
 }
 
-/* Card overlay for the image */
 .hero.hero12 > div > div {
   background: rgb(255 255 255 / 24%);
   border-radius: 20px;
@@ -267,9 +261,6 @@
   z-index: 2;
 }
 
-/* Card image inside overlay */
-
-/* Responsive: overlay/card shrinks and centers */
 @media (width <= 900px) {
   .hero.hero12 {
     min-height: 180px;
@@ -301,8 +292,189 @@
   }
 }
 
-/* Hide duplicate or redundant images (if any extra) */
 .hero.hero12 > div > div:first-child + div > picture,
 .hero.hero12 > div > div:first-child + div > picture > img {
   display: none;
+}
+
+/* Full viewport hero */
+.hero.hero20 {
+  width: 100vw;
+  min-height: 100vh;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  background: transparent;
+}
+
+/* Collage grid for images */
+.hero.hero20 > div:first-child {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Fill grid cells with images */
+.hero.hero20 > div:first-child p {
+  display: contents;
+}
+
+.hero.hero20 > div:first-child picture,
+.hero.hero20 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay for contrast */
+.hero.hero20::after {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 52%);
+  z-index: 2;
+  pointer-events: none;
+  display: block;
+}
+
+/* Center content as a unit vertically and horizontally, and nudge up for balance */
+.hero.hero20 > div:nth-child(2) {
+  position: relative;
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero.hero20 > div:nth-child(2) > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 900px;
+  padding: 0 16px;
+  text-align: center;
+  transform: translateY(-6%);
+}
+
+/* Headline */
+.hero.hero20 h1 {
+  color: #fff;
+  font-size: clamp(2.5rem, 9vw, 6rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.07;
+  margin-bottom: 18px;
+  margin-top: 0;
+  text-align: center;
+  text-shadow: 0 2px 8px rgb(0 0 0 / 18%);
+}
+
+/* Supporting text */
+.hero.hero20 > div:nth-child(2) p:not(.button-container) {
+  color: rgb(255 255 255 / 87%);
+  font-size: 1.13rem;
+  line-height: 1.52;
+  margin-bottom: 18px;
+  margin-top: 0;
+  text-align: center;
+  max-width: 600px;
+  padding: 0 12px;
+}
+
+/* --- Button Row --- */
+
+/* Make both button-container elements display in a horizontal flex row */
+.hero.hero20 > div:nth-child(2) > div .button-container {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+}
+
+.hero.hero20 > div:nth-child(2) > div .button-container + .button-container {
+  margin-left: 10px;
+}
+
+/* Button appearance overrides (solid + outlined) */
+.hero.hero20 .button {
+  min-width: 140px;
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  border-radius: 2.4em;
+  font-weight: 600;
+  margin: 0;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  box-shadow: none;
+  position: relative;
+}
+
+.hero.hero20 .button-container:first-of-type .button {
+  background: #222;
+  color: #fff;
+  border: 2px solid #222;
+}
+
+.hero.hero20 .button-container:last-of-type .button {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+/* Responsive: stack buttons on mobile, tighten spacing */
+@media (width <= 800px) {
+  .hero.hero20 {
+    min-height: 75vh;
+    height: auto;
+  }
+
+  .hero.hero20 > div:first-child {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  .hero.hero20 > div:nth-child(2) {
+    min-height: 75vh;
+    height: auto;
+    padding: 24px 8px;
+  }
+
+  .hero.hero20 h1 {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    margin-bottom: 12px;
+  }
+
+  .hero.hero20 > div:nth-child(2) > div {
+    padding: 0 8px;
+    transform: translateY(-2%);
+  }
+
+  .hero.hero20 > div:nth-child(2) > div .button-container {
+    display: flex;
+    width: 100%;
+    margin: 0 0 8px;
+    justify-content: center;
+  }
+
+  .hero.hero20 > div:nth-child(2) > div .button-container + .button-container {
+    margin-left: 0;
+  }
+
+  .hero.hero20 .button {
+    min-width: 110px;
+    padding: 10px 18px;
+    font-size: 1rem;
+  }
 }
