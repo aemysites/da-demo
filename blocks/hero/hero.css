@@ -45,3 +45,151 @@
     padding: 40px 32px;
   }
 }
+
+.hero.hero6 {
+  position: relative;
+  min-height: 640px;
+  border-radius: 32px;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* Ensure background image fills and is not interactive */
+.hero.hero6 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero.hero6 picture,
+.hero.hero6 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Vertically center overlay, align left, ensure content is above the image */
+.hero.hero6 > div:last-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Overlay panel: compact, semi-transparent, balanced left/top spacing */
+.hero.hero6 > div:last-child > div {
+  background: rgb(30 30 30 / 33%);
+  border: 1.5px solid #fff;
+  border-radius: 32px;
+  box-sizing: border-box;
+  backdrop-filter: blur(2px);
+  color: #fff;
+  max-width: 335px;
+  width: 100%;
+  padding: 28px 20px 18px 28px;
+  margin-left: 32px;
+  box-shadow: 0 2px 18px rgb(0 0 0 / 10%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: auto;
+  justify-content: center;
+}
+
+/* Headline spacing */
+.hero.hero6 h1 {
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: 1.05;
+  margin: 0 0 6px;
+  padding: 0;
+}
+
+/* Description text placement and color for contrast */
+.hero.hero6 p:not(.button-container) {
+  font-size: 15px;
+  color: #E0E0E0;
+  line-height: 1.5;
+  margin: 0 0 2px;
+  padding: 0;
+}
+
+/* Button container: center button horizontally below text */
+.hero.hero6 .button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0;
+  margin: 8px 0 0;
+}
+
+/* Button: outlined, transparent background, white border/text */
+.hero-container > .hero-wrapper > .block.hero.hero6 .button,
+.hero.hero6 .button-container a.button {
+  border-radius: 20px;
+  font-size: 16px;
+  padding: 9px 24px;
+  font-weight: 500;
+  border: 1.5px solid #fff;
+  background: transparent;
+  color: #fff;
+  margin: 0 auto;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  box-shadow: none;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.hero-container > .hero-wrapper > .block.hero.hero6 .button:hover,
+.hero.hero6 .button-container a.button:hover {
+  background: rgb(255 255 255 / 10%);
+}
+
+/* Responsive: overlay panel tight and properly aligned on small screens */
+@media (width <= 900px) {
+  .hero.hero6 {
+    min-height: 340px;
+    border-radius: 14px;
+  }
+
+  .hero.hero6 > div:last-child > div {
+    max-width: 96vw;
+    margin-left: 3vw;
+    padding: 12px 3vw 10px 4vw;
+    border-radius: 12px;
+    gap: 5px;
+  }
+
+  .hero.hero6 h1 {
+    font-size: 31px;
+    margin-bottom: 4px;
+  }
+
+  .hero.hero6 p:not(.button-container) {
+    font-size: 13px;
+    margin-bottom: 1px;
+  }
+
+  .hero.hero6 .button-container {
+    margin-top: 6px;
+  }
+}
+
+/* Ensure hero spans the full width of the viewport */
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
