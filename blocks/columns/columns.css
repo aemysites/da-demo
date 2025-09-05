@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -56,7 +57,6 @@
   box-sizing: border-box;
 }
 
-/* Left column (heading + text) */
 .columns.columns3 > div > div:first-child {
   flex: 0 1 460px;
   max-width: 460px;
@@ -84,7 +84,6 @@
   min-width: 200px;
 }
 
-/* Right column (buttons) */
 .columns.columns3 > div > div:last-child {
   flex: 0 0 250px;
   display: flex;
@@ -95,7 +94,6 @@
   box-sizing: border-box;
 }
 
-/* Button stack */
 .columns.columns3 > div > div:last-child p {
   display: flex;
   flex-direction: column;
@@ -107,7 +105,6 @@
   box-sizing: border-box;
 }
 
-/* Button style */
 .columns.columns3 > div > div:last-child a {
   display: block;
   width: 210px;
@@ -141,7 +138,6 @@
   box-shadow: 0 2px 0 0 #eaff00;
 }
 
-/* Responsive: stack columns and buttons on small screens */
 @media (width <= 900px) {
   .columns.columns3 {
     flex-direction: column;
@@ -179,5 +175,95 @@
   .columns.columns3 > div > div:last-child a {
     width: 100%;
     min-width: 0;
+  }
+}
+
+
+.columns.columns14 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 40px;
+  width: 100%;
+}
+
+@media (width <= 899px) {
+  .columns.columns14 > div {
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
+/* Headline (left column) */
+.columns.columns14 > div > div:first-child h2 {
+    font-size: 2.2rem;
+  }
+
+/* Right column: tightly group paragraph and button at the top, no flex-grow */
+.columns.columns14 > div > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 340px;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Prevent children from stretching vertically, keep them packed at the top */
+.columns.columns14 > div > div:last-child > * {
+  flex: 0 0 auto;
+}
+
+/* Supporting text in right column */
+.columns.columns14 > div > div:last-child p:not(.button-container) {
+  font-size: 0.93rem;
+  color: #000;
+  line-height: 1.38;
+  margin: 0 0 4px; /* very tight gap below paragraph */
+  max-width: 100%;
+}
+
+.columns.columns14 > div > div:last-child .button-container {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: auto;
+}
+
+/* Make sure button doesn't stretch or misalign */
+.columns.columns14 .button {
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 2em;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.38;
+  padding: 4px 28px;
+  margin: 0;
+  min-width: 0;
+  box-shadow: none;
+  transition: background 0.2s;
+  display: inline-block;
+}
+
+.columns.columns14 .button:hover,
+.columns.columns14 .button:focus {
+  background: #f5f5f5;
+  color: #000;
+  border-color: #000;
+}
+
+/* Responsive heading font for small screens */
+@media (width <= 899px) {
+  .columns.columns14 > div > div:first-child h2 {
+    font-size: 2.2rem;
+  }
+
+  .columns.columns14 > div > div:last-child {
+    max-width: 100%;
   }
 }
