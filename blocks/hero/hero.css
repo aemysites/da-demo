@@ -297,7 +297,6 @@
   display: none;
 }
 
-/* Full viewport hero */
 .hero.hero20 {
   width: 100vw;
   min-height: 100vh;
@@ -308,7 +307,6 @@
   background: transparent;
 }
 
-/* Collage grid for images */
 .hero.hero20 > div:first-child {
   position: absolute;
   inset: 0;
@@ -322,7 +320,6 @@
   pointer-events: none;
 }
 
-/* Fill grid cells with images */
 .hero.hero20 > div:first-child p {
   display: contents;
 }
@@ -335,7 +332,6 @@
   display: block;
 }
 
-/* Overlay for contrast */
 .hero.hero20::after {
   position: absolute;
   inset: 0;
@@ -345,7 +341,6 @@
   display: block;
 }
 
-/* Center content as a unit vertically and horizontally, and nudge up for balance */
 .hero.hero20 > div:nth-child(2) {
   position: relative;
   z-index: 3;
@@ -368,7 +363,6 @@
   transform: translateY(-6%);
 }
 
-/* Headline */
 .hero.hero20 h1 {
   color: #fff;
   font-size: clamp(2.5rem, 9vw, 6rem);
@@ -381,7 +375,6 @@
   text-shadow: 0 2px 8px rgb(0 0 0 / 18%);
 }
 
-/* Supporting text */
 .hero.hero20 > div:nth-child(2) p:not(.button-container) {
   color: rgb(255 255 255 / 87%);
   font-size: 1.13rem;
@@ -393,9 +386,6 @@
   padding: 0 12px;
 }
 
-/* --- Button Row --- */
-
-/* Make both button-container elements display in a horizontal flex row */
 .hero.hero20 > div:nth-child(2) > div .button-container {
   display: inline-flex;
   align-items: center;
@@ -408,7 +398,6 @@
   margin-left: 10px;
 }
 
-/* Button appearance overrides (solid + outlined) */
 .hero.hero20 .button {
   min-width: 140px;
   padding: 12px 28px;
@@ -433,7 +422,6 @@
   border: 2px solid #fff;
 }
 
-/* Responsive: stack buttons on mobile, tighten spacing */
 @media (width <= 800px) {
   .hero.hero20 {
     min-height: 75vh;
@@ -476,5 +464,84 @@
     min-width: 110px;
     padding: 10px 18px;
     font-size: 1rem;
+  }
+}
+
+
+.hero.hero28 {
+  position: relative;
+  width: 100vw;
+  min-height: 680px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+}
+
+/* Make the image layer fill the hero and stay in the back */
+.hero.hero28 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+}
+
+/* Ensure picture and img fill the hero and are cropped correctly */
+.hero.hero28 picture,
+.hero.hero28 img {
+  width: 100vw;
+  height: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay text container: center content with flexbox */
+.hero.hero28 > div:last-child {
+  position: relative;
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  pointer-events: none;
+  padding: 0;
+}
+
+/* Headline: very large, centered, responsive, optimal width for balance */
+.hero.hero28 h1 {
+  color: #fff;
+  text-align: center;
+  font-size: clamp(2.6rem, 8vw, 5.5rem);
+  line-height: 1.03;
+  font-weight: 400;
+  margin: 0;
+  max-width: 56vw;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 22px rgb(0 0 0 / 30%);
+  background: none;
+}
+
+/* Make the hero extra spacious on large screens */
+@media (width >= 1200px) {
+  .hero.hero28 {
+    min-height: 850px;
+  }
+
+  .hero.hero28 > div:last-child {
+    min-height: 850px;
+  }
+
+  .hero.hero28 h1 {
+    font-size: clamp(3.8rem, 7vw, 6.5rem);
+    max-width: 44vw;
   }
 }
