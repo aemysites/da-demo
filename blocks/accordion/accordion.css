@@ -2,7 +2,6 @@
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +57,92 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion13 {
+  background: #fff;
+  padding: 0;
+}
+
+/* Each FAQ 'row' uses flex to create columns for summary and body */
+.accordion.accordion13 > details.accordion-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid #cfcfcf;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  min-height: 42px;
+}
+
+.accordion.accordion13 > details.accordion-item:last-child {
+  border-bottom: none;
+}
+
+/* Left column: question */
+.accordion.accordion13 details.accordion-item > summary {
+  flex: 0 0 60%;
+  padding-left: 12px;
+  padding-right: 8px;
+  text-transform: uppercase;
+  font-size: 18px;
+  color: #6d6d6d;
+  letter-spacing: 0.04em;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  min-height: 42px;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: default;
+  user-select: text;
+  margin: 0;
+}
+
+/* Remove summary marker/caret for minimal look */
+.accordion.accordion13 details.accordion-item > summary::-webkit-details-marker,
+.accordion.accordion13 details.accordion-item > summary::marker,
+.accordion.accordion13 details.accordion-item > summary::after {
+  display: none;
+}
+
+/* Right column: answer */
+.accordion.accordion13 details.accordion-item .accordion-item-body {
+  flex: 0 0 40%;
+  padding-right: 12px;
+  padding-left: 8px;
+  font-size: 12px;
+  color: #404040;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  min-height: 42px;
+  margin: 0;
+}
+
+/* Remove any default margins on p tags inside columns */
+.accordion.accordion13 details.accordion-item > summary p,
+.accordion.accordion13 details.accordion-item .accordion-item-body p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive stacking on mobile */
+@media (width <= 700px) {
+  .accordion.accordion13 > details.accordion-item {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+  }
+
+  .accordion.accordion13 details.accordion-item > summary,
+  .accordion.accordion13 details.accordion-item .accordion-item-body {
+    flex: 1 1 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+    min-height: 32px;
+  }
 }
